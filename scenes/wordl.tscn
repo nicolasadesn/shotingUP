@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://3h6ola0lpu0d"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_5ts51"]
+[ext_resource type="Texture2D" uid="uid://dh4vqaa07wdju" path="res://icon.svg" id="1_55f00"]
+[ext_resource type="PackedScene" uid="uid://bo07h5ctkr2i3" path="res://scenes/enemy.tscn" id="2_onm0r"]
+[ext_resource type="PackedScene" uid="uid://cs53jywkmgxvy" path="res://scenes/player.tscn" id="2_xvmo7"]
+[ext_resource type="PackedScene" uid="uid://le60mea31yi2" path="res://scenes/bulllet.tscn" id="3_7upus"]
+[ext_resource type="PackedScene" uid="uid://drkaq7a1o0hod" path="res://scenes/spawn_enemy.tscn" id="6_wp1a8"]
+[ext_resource type="PackedScene" uid="uid://cyfh75665t8ly" path="res://scenes/ui.tscn" id="7_aog2l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxq0u"]
+size = Vector3(1.20947, 1.26184, 1)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_5ts51")
+enemy_obj = ExtResource("2_onm0r")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.677942, 0.735116, 0, -0.735116, 0.677942, 0.595, 12.5257, 10.7937)
+
+[node name="SpawnEnemy" parent="Camera3D" instance=ExtResource("6_wp1a8")]
+transform = Transform3D(1, 0, 0, 0, 0.677942, -0.735116, 0, 0.735116, 0.677942, 0, -15.4516, -2.49198)
+
+[node name="Ground" type="Sprite3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, -2.66041e-06, -1.207, 0, 60.863, -5.27596e-08, 0, 0, 0)
+layers = 4
+texture = ExtResource("1_55f00")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.27374e-13, 0, -2.27374e-13, 1, 0.00901262, 0.00201416, 7.81597e-14)
+shape = SubResource("BoxShape3D_rxq0u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 45.904, 0)
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera", "world") instance=ExtResource("2_xvmo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.187861, 5.49462)
+collision_mask = 6
+bulletObject = ExtResource("3_7upus")
+camera = NodePath("../Camera3D")
+world = NodePath("..")
+
+[node name="UI" parent="." instance=ExtResource("7_aog2l")]

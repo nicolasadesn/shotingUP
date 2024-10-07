@@ -1,0 +1,232 @@
+[gd_scene load_steps=20 format=3 uid="uid://cs53jywkmgxvy"]
+
+[ext_resource type="Script" path="res://scripts/character_body_3d.gd" id="1_e17cf"]
+[ext_resource type="PackedScene" uid="uid://c6we4yhkuy6lh" path="res://scenes/power_up_text.tscn" id="2_ecqs6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ubcd0"]
+height = 2.1353
+
+[sub_resource type="Animation" id="Animation_clku1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGSphere3D/CSGCylinder3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.379149, 0.0655254, -0.562744)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PowerUpText:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerUpText:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PowerUpText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.537552, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGSphere3D/CSGCylinder3D:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.33683]
+}
+
+[sub_resource type="Animation" id="Animation_3i6pw"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGSphere3D/CSGCylinder3D:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.33683, 1.5]
+}
+
+[sub_resource type="Animation" id="Animation_q0pcw"]
+resource_name = "power_up"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PowerUpText:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.333333, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PowerUpText:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2, 0), Vector3(0, 4, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerUpText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667, 1.1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.537552, 0, 1), Color(0, 0.537255, 0, 0.219608), Color(0, 0.537552, 0, 1), Color(0, 0.537255, 0, 0.219608)]
+}
+
+[sub_resource type="Animation" id="Animation_58c6f"]
+resource_name = "run"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGSphere3D/CSGCylinder3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.379149, 0.0655254, -0.562744), Vector3(-0.379149, -0.0012289, -0.407535), Vector3(-0.379149, 0.0584986, -0.252326), Vector3(-0.379149, -0.0012289, -0.407535), Vector3(-0.379149, 0.0655254, -0.562744)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2lhi"]
+_data = {
+"RESET": SubResource("Animation_clku1"),
+"idle": SubResource("Animation_3i6pw"),
+"power_up": SubResource("Animation_q0pcw"),
+"run": SubResource("Animation_58c6f")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_63uri"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rfd3i"]
+animation = &"power_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n73c8"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_304oy"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bym1a"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_saakm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f2too"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ke5o"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1nktv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tbtfp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nwej3"]
+states/idle/node = SubResource("AnimationNodeAnimation_63uri")
+states/idle/position = Vector2(522.667, 66)
+states/power_up/node = SubResource("AnimationNodeAnimation_rfd3i")
+states/power_up/position = Vector2(523.111, 175.333)
+states/run/node = SubResource("AnimationNodeAnimation_n73c8")
+states/run/position = Vector2(686.667, 64.6667)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_304oy"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_bym1a"), "run", "End", SubResource("AnimationNodeStateMachineTransition_saakm"), "Start", "power_up", SubResource("AnimationNodeStateMachineTransition_f2too"), "power_up", "End", SubResource("AnimationNodeStateMachineTransition_5ke5o"), "idle", "power_up", SubResource("AnimationNodeStateMachineTransition_1nktv"), "run", "power_up", SubResource("AnimationNodeStateMachineTransition_tbtfp")]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("bulletSpawnLocation")]
+script = ExtResource("1_e17cf")
+bulletSpawnLocation = NodePath("CSGSphere3D/CSGCylinder3D/SpawnBullet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08801, 0)
+shape = SubResource("CapsuleShape3D_ubcd0")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.92072, 0, 0, 0, 1, 0, 0.959952, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGSphere3D"]
+transform = Transform3D(0.216068, 0, 0, 0, -2.57277e-08, 0.211463, 0, -0.58858, -9.24334e-09, -0.379149, 0.0655254, -0.562744)
+height = 1.33683
+cone = true
+
+[node name="SpawnBullet" type="Node3D" parent="CSGSphere3D/CSGCylinder3D"]
+transform = Transform3D(4.62817, 0, 0, 0, -3.86656e-08, -1.699, 0, 2.46208, -2.0671e-07, 0.0573153, 0.68828, 0.00544667)
+
+[node name="PowerUpText" parent="." instance=ExtResource("2_ecqs6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+modulate = Color(0, 0.537552, 0, 1)
+text = "Power"
+font_size = 200
+outline_size = 20
+
+[node name="Timer_Buff_Text" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n2lhi")
+}
+autoplay = "idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_nwej3")
+anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="timeout" from="Timer_Buff_Text" to="." method="_on_timer_buff_text_timeout"]

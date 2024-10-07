@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c6we4yhkuy6lh"]
+
+[node name="PowerUpText" type="Label3D"]
