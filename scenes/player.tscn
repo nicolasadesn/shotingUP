@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cs53jywkmgxvy"]
+[gd_scene load_steps=29 format=3 uid="uid://cs53jywkmgxvy"]
 
 [ext_resource type="Script" path="res://scripts/character_body_3d.gd" id="1_e17cf"]
 [ext_resource type="PackedScene" uid="uid://c6we4yhkuy6lh" path="res://scenes/power_up_text.tscn" id="2_ecqs6"]
@@ -6,70 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ubcd0"]
 height = 2.1353
 
-[sub_resource type="Animation" id="Animation_clku1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGSphere3D/CSGCylinder3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.379149, 0.0655254, -0.562744)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PowerUpText:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PowerUpText:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 2, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PowerUpText:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0.537552, 0, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CSGSphere3D/CSGCylinder3D:height")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.33683]
-}
-
-[sub_resource type="Animation" id="Animation_3i6pw"]
+[sub_resource type="Animation" id="Animation_0s4y6"]
 resource_name = "idle"
 loop_mode = 1
 tracks/0/type = "value"
@@ -79,56 +16,150 @@ tracks/0/path = NodePath("CSGSphere3D/CSGCylinder3D:height")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.52, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [1.33683, 1.5]
-}
-
-[sub_resource type="Animation" id="Animation_q0pcw"]
-resource_name = "power_up"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PowerUpText:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.333333, 0.933333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+"values": [2.0, 1.5, 2.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PowerUpText:position")
+tracks/1/path = NodePath("CSGSphere3D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.333333, 0.933333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 2, 0), Vector3(0, 4, 0)]
+"values": [Vector3(1, 1.92072, 1), Vector3(1, 1.71224, 1), Vector3(1, 1.92072, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0uvtv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGSphere3D/CSGCylinder3D:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGSphere3D/CSGCylinder3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.379149, 0.0655254, -0.562744)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PowerUpText:modulate")
+tracks/2/path = NodePath("CSGSphere3D/CSGCylinder3D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.366667, 1.1, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0.537552, 0, 1), Color(0, 0.537255, 0, 0.219608), Color(0, 0.537552, 0, 1), Color(0, 0.537255, 0, 0.219608)]
+"values": [Vector3(-1.5708, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGSphere3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.959952, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGSphere3D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1.92072, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGSphere3D/CSGCylinder3D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.216068, 0.58858, 0.211463)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:power_up_anim")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PowerUpText:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.537255, 0, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PowerUpText:outline_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PowerUpText:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_58c6f"]
-resource_name = "run"
-length = 1.1
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_oo7v1"]
+resource_name = "shot"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -136,58 +167,233 @@ tracks/0/path = NodePath("CSGSphere3D/CSGCylinder3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.18, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.379149, 0.0655254, -0.562744), Vector3(-0.379149, -0.0012289, -0.407535), Vector3(-0.379149, 0.0584986, -0.252326), Vector3(-0.379149, -0.0012289, -0.407535), Vector3(-0.379149, 0.0655254, -0.562744)]
+"values": [Vector3(-0.379149, 0.0655254, -0.562744), Vector3(-0.379149, 0.0369081, -0.426338), Vector3(-0.379149, 0.0655254, -0.562744)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGSphere3D/CSGCylinder3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.18, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-1.18086, 0.00745668, -0.0101679), Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGSphere3D/CSGCylinder3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.37, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.216068, 0.58858, 0.211463), Vector3(0.216194, 0.502553, 0.239474), Vector3(0.216153, 0.588318, 0.227633), Vector3(0.216068, 0.58858, 0.211463)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_end_shoot"
+}]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2lhi"]
+[sub_resource type="Animation" id="Animation_c40mj"]
+resource_name = "run"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGSphere3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.959952, 0), Vector3(0, 1.5, 0), Vector3(0, 0.959952, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ueprx"]
+resource_name = "power_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:power_up_anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_update_animation_parameters"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("PowerUpText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.537255, 0, 1), Color(0, 0.537255, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("PowerUpText:outline_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("PowerUpText:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.93242, 0), Vector3(0, 4, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vs58"]
 _data = {
-"RESET": SubResource("Animation_clku1"),
-"idle": SubResource("Animation_3i6pw"),
-"power_up": SubResource("Animation_q0pcw"),
-"run": SubResource("Animation_58c6f")
+"RESET": SubResource("Animation_0uvtv"),
+"idle": SubResource("Animation_0s4y6"),
+"power_up": SubResource("Animation_ueprx"),
+"run": SubResource("Animation_c40mj"),
+"shot": SubResource("Animation_oo7v1")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_63uri"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hicc1"]
+graph_offset = Vector2(-364.212, 72.663)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q5oa2"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rfd3i"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_56gg2"]
 animation = &"power_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n73c8"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_duprp"]
 animation = &"run"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_304oy"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_57ldv"]
+animation = &"shot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pvhkg"]
+switch_mode = 1
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bym1a"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8hxqj"]
 advance_mode = 2
+advance_condition = &"in_moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_saakm"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2w4a5"]
 advance_mode = 2
+advance_condition = &"in_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f2too"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mepd3"]
 advance_mode = 2
+advance_condition = &"shooting"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ke5o"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3xwet"]
+break_loop_at_end = true
+switch_mode = 2
 advance_mode = 2
+advance_condition = &"in_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1nktv"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o1bdd"]
+break_loop_at_end = true
+switch_mode = 2
 advance_mode = 2
+advance_condition = &"in_moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tbtfp"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xdui6"]
 advance_mode = 2
+advance_condition = &"shooting"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nwej3"]
-states/idle/node = SubResource("AnimationNodeAnimation_63uri")
-states/idle/position = Vector2(522.667, 66)
-states/power_up/node = SubResource("AnimationNodeAnimation_rfd3i")
-states/power_up/position = Vector2(523.111, 175.333)
-states/run/node = SubResource("AnimationNodeAnimation_n73c8")
-states/run/position = Vector2(686.667, 64.6667)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_304oy"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_bym1a"), "run", "End", SubResource("AnimationNodeStateMachineTransition_saakm"), "Start", "power_up", SubResource("AnimationNodeStateMachineTransition_f2too"), "power_up", "End", SubResource("AnimationNodeStateMachineTransition_5ke5o"), "idle", "power_up", SubResource("AnimationNodeStateMachineTransition_1nktv"), "run", "power_up", SubResource("AnimationNodeStateMachineTransition_tbtfp")]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oufep"]
+advance_mode = 2
+advance_condition = &"power_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5fxiu"]
+advance_mode = 2
+advance_condition = &"power_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1wpq"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"in_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f4emc"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"in_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2wdgr"]
+break_loop_at_end = true
+advance_mode = 2
+advance_condition = &"shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ogl1b"]
+break_loop_at_end = true
+advance_mode = 2
+advance_condition = &"power_up"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d60fg"]
+states/BlendTree/node = SubResource("AnimationNodeBlendTree_hicc1")
+states/BlendTree/position = Vector2(-26.3333, 70)
+states/Start/position = Vector2(109.333, 36)
+states/idle/node = SubResource("AnimationNodeAnimation_q5oa2")
+states/idle/position = Vector2(262.667, 9.33333)
+states/power_up/node = SubResource("AnimationNodeAnimation_56gg2")
+states/power_up/position = Vector2(455.556, -108)
+states/run/node = SubResource("AnimationNodeAnimation_duprp")
+states/run/position = Vector2(773.333, 16.4444)
+states/shot/node = SubResource("AnimationNodeAnimation_57ldv")
+states/shot/position = Vector2(454.667, 186.667)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_pvhkg"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_8hxqj"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_2w4a5"), "idle", "shot", SubResource("AnimationNodeStateMachineTransition_mepd3"), "shot", "idle", SubResource("AnimationNodeStateMachineTransition_3xwet"), "shot", "run", SubResource("AnimationNodeStateMachineTransition_o1bdd"), "run", "shot", SubResource("AnimationNodeStateMachineTransition_xdui6"), "run", "power_up", SubResource("AnimationNodeStateMachineTransition_oufep"), "idle", "power_up", SubResource("AnimationNodeStateMachineTransition_5fxiu"), "power_up", "run", SubResource("AnimationNodeStateMachineTransition_b1wpq"), "power_up", "idle", SubResource("AnimationNodeStateMachineTransition_f4emc"), "power_up", "shot", SubResource("AnimationNodeStateMachineTransition_2wdgr"), "shot", "power_up", SubResource("AnimationNodeStateMachineTransition_ogl1b")]
+graph_offset = Vector2(-165, -24)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("bulletSpawnLocation")]
 script = ExtResource("1_e17cf")
@@ -201,32 +407,34 @@ shape = SubResource("CapsuleShape3D_ubcd0")
 transform = Transform3D(1, 0, 0, 0, 1.92072, 0, 0, 0, 1, 0, 0.959952, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGSphere3D"]
-transform = Transform3D(0.216068, 0, 0, 0, -2.57277e-08, 0.211463, 0, -0.58858, -9.24334e-09, -0.379149, 0.0655254, -0.562744)
-height = 1.33683
+transform = Transform3D(0.216068, 0, 0, 0, -2.57276e-08, 0.211463, 0, -0.58858, -9.24334e-09, -0.379149, 0.0655254, -0.562744)
 cone = true
 
 [node name="SpawnBullet" type="Node3D" parent="CSGSphere3D/CSGCylinder3D"]
 transform = Transform3D(4.62817, 0, 0, 0, -3.86656e-08, -1.699, 0, 2.46208, -2.0671e-07, 0.0573153, 0.68828, 0.00544667)
 
 [node name="PowerUpText" parent="." instance=ExtResource("2_ecqs6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2, 0)
 billboard = 1
-modulate = Color(0, 0.537552, 0, 1)
-text = "Power"
+modulate = Color(0, 0.537255, 0, 1)
 font_size = 200
 outline_size = 20
 
 [node name="Timer_Buff_Text" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_n2lhi")
+"": SubResource("AnimationLibrary_0vs58")
 }
 autoplay = "idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_nwej3")
+tree_root = SubResource("AnimationNodeStateMachine_d60fg")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/in_idle = false
+parameters/conditions/in_moving = false
+parameters/conditions/power_up = false
+parameters/conditions/shooting = false
 
 [connection signal="timeout" from="Timer_Buff_Text" to="." method="_on_timer_buff_text_timeout"]

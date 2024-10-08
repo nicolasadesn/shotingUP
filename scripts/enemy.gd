@@ -44,7 +44,8 @@ func _do_damage(power:int) -> int:
 		return rest_power
 
 func _dead():
-	if(prob_drop_elem > rng.randf_range(70,100)):
+	#if(prob_drop_elem > rng.randf_range(70,100)):
+	if(prob_drop_elem > rng.randf_range(0,100)):
 		var item = item_scene.instantiate()
 		item.position = position
 		get_tree().current_scene.add_child(item)

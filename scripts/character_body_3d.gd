@@ -14,11 +14,15 @@ var camera_original_pos
 var speed_cam = 3
 
 var can_shoot = true
+var shooting
 var coldown_shoot
 
 var power_up_text:Label3D
 var timer_buff:Timer
 var anim_play:AnimationPlayer
+var anim_tree:AnimationTree
+
+@export var power_up_anim:bool
 
 func _ready():
 	coldown_shoot = cd_base_shoot
@@ -26,6 +30,7 @@ func _ready():
 	power_up_text = $PowerUpText
 	timer_buff = $Timer_Buff_Text
 	anim_play = $AnimationPlayer
+	anim_tree = $AnimationTree
 
 func _physics_process(delta):
 	if(camera):
@@ -43,11 +48,11 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.y * SPEED
-		anim_play.play("run")
+		_update_animation_parameters()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		anim_play.play("idle")
+		_update_animation_parameters()
 	
 	look_at(look_at_cursor(), Vector3.UP)
 
@@ -58,7 +63,7 @@ func _physics_process(delta):
 		coldown_shoot -= delta
 	else:
 		can_shoot = true
-	
+			
 	move_and_slide()
 
 func shoot():
@@ -68,6 +73,8 @@ func shoot():
 	b._set_power(power)
 	$"..".add_child(b)
 	can_shoot = false
+	shooting = true
+	_update_animation_parameters()
 	coldown_shoot = cd_base_shoot
 
 func look_at_cursor() -> Vector3:
@@ -93,9 +100,33 @@ func _set_buff(buff):
 		cd_base_shoot -= cd_base_shoot * 0.1
 		power_up_text.text = "Attack Speed UP!"
 	timer_buff.start()
-	anim_play.play("power_up")
+	power_up_anim = true
+	_update_animation_parameters()
 	world._reload_ui()
 
 func _on_timer_buff_text_timeout():
 	power_up_text.text = ""
-	
+	power_up_anim = false
+
+
+func _end_shoot():
+	shooting = false
+	_update_animation_parameters()
+
+func _update_animation_parameters():
+	if(velocity == Vector3.ZERO):
+		anim_tree["parameters/conditions/in_idle"] = true
+		anim_tree["parameters/conditions/in_moving"] = false
+	else:
+		anim_tree["parameters/conditions/in_idle"] = false
+		anim_tree["parameters/conditions/in_moving"] = true
+		
+	if(shooting):
+		anim_tree["parameters/conditions/shooting"] = true
+	else:
+		anim_tree["parameters/conditions/shooting"] = false
+		
+	if(power_up_anim):
+		anim_tree["parameters/conditions/power_up"] = true
+	else:
+		anim_tree["parameters/conditions/power_up"] = false
